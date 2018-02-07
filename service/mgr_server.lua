@@ -16,20 +16,20 @@ end
 
 local switch = {
     [1] = function ( ws, t_msg )
-        print(string.format("%d receive:%s", ws.id, t_msg.msg_type))
+        print(string.format("%d receive:%d", ws.id, t_msg.user_id))
         -- ws:send_text(message)
     end,
 }
 function handler.on_message(ws, message)
-    -- print(string.format("%d receive:%s", ws.id, message.type))
     local t_msg = tcode.decode(message)
-    local fswitch = switch[t_msg.type]
+    print(string.format("%d receive:%d", ws.id, t_msg.user_id))
+
+    local fswitch = switch[t_msg.msg_type]
     if fswitch then
         fswitch(ws, t_msg)
     else
-        print("error message type:" .. message.type)
-        require 'json'
-        ws:send_text(json.encode(message))
+        -- ws:send_text(json.encode(message))
+        print("error message type:", t_msg.msg_type)
     end
     ws:close()
 end
