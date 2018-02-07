@@ -11,9 +11,24 @@ function handler.on_open(ws)
     print(string.format("%d::open", ws.id))
 end
 
+local switch = {
+    [1] = function ( ws, message )
+        print(string.format("%d receive:%s", ws.id, message.type))
+        ws:send_text(message)
+    end,
+}
 function handler.on_message(ws, message)
-    print(string.format("%d receive:%s", ws.id, message))
-    ws:send_text(message .. "from server")
+    -- print(string.format("%d receive:%s", ws.id, message.type))
+    local fswitch = switch[message.type]
+    if fswitch then
+        fswitch(ws, message)
+    else
+        print("error message type:" .. message.type)
+        ws:send_text({
+            type:1, 
+            value:"error message type:" .. message.type,
+        })
+    end
     ws:close()
 end
 
