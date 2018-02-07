@@ -5,7 +5,7 @@ local httpd = require "http.httpd"
 local urllib = require "http.url"
 local sockethelper = require "http.sockethelper"
 
-local tcode = require "service/tcode"
+local tcode = require "tcode"
 
 
 
