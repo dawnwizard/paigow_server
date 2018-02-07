@@ -51,7 +51,7 @@ local function handle_socket(id)
 end
 
 skynet.start(function()
-    local address = "0.0.0.0:8002"
+    local address = "0.0.0.0:8001"
     skynet.error("Listening "..address)
     local id = assert(socket.listen(address))
     socket.start(id , function(id, addr)

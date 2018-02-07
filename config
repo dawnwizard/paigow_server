@@ -9,7 +9,7 @@ lua_path = root .. "lualib/?.lua;" .. root .. "skynet/lualib/?.lua;" .. root .. 
 lua_cpath = root .. "skynet/luaclib/?.so"
 cpath = root .. "/cservice/?.so;"..root.."/skynet/cservice/?.so"
 
-if $DAEMON then
-	logger = root .. "run/skynet.log"
-	daemon = root .. "run/skynet.pid"
-end
+-- if $DAEMON then
+-- 	logger = root .. "run/skynet.log"
+-- 	daemon = root .. "run/skynet.pid"
+-- end
