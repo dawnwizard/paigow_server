@@ -1,7 +1,7 @@
 
 local tcode = {}
 
-tcode.decode = function ( s_msg )
+function tcode:decode( s_msg )
 	local t_msg = {}
 	t_msg.user_id = 10000
 	t_msg.msg_type = 1
