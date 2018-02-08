@@ -1,4 +1,5 @@
-root = "$ROOT/"
+-- root = "$ROOT/"
+root = "./"
 thread = 8
 logpath = root .. "run"
 harbor = 0
