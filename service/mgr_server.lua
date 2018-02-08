@@ -21,6 +21,7 @@ local switch = {
     end,
 }
 function handler.on_message(ws, message)
+    print("s_msg:", message)
     local t_msg = tcode.decode(message)
     print(string.format("%d receive:%d", ws.id, t_msg.user_id))
 
