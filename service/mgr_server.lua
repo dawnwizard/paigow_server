@@ -22,7 +22,7 @@ local switch = {
 }
 function handler.on_message(ws, message)
     print("s_msg:", message)
-    local t_msg = tcode.decode(message)
+    local t_msg = tcode:decode(message)
     print(string.format("%d receive:%d", ws.id, t_msg.user_id))
 
     local fswitch = switch[t_msg.msg_type]
@@ -53,7 +53,7 @@ end
 skynet.start(function()
     local address = "0.0.0.0:8080"
     skynet.error("Listening "..address)
-    tcode.decode("12345$|test")
+    tcode:decode("12345$|test")
     local id = assert(socket.listen(address))
     socket.start(id , function(id, addr)
        socket.start(id)
