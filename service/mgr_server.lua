@@ -53,6 +53,7 @@ end
 skynet.start(function()
     local address = "0.0.0.0:8080"
     skynet.error("Listening "..address)
+    tcode.decode("12345$|test")
     local id = assert(socket.listen(address))
     socket.start(id , function(id, addr)
        socket.start(id)
