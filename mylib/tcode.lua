@@ -3,6 +3,8 @@ local tcode = {}
 
 function tcode:decode(s_msg)
 	local t_msg = {}
+	print("s_msg:", s_msg)
+	local s_msg = tostring(s_msg)
 	local idx_id1, idx_id2 = string.find(s_msg, "$|")
 	print("idx_id1:", idx_id1, "idx_id2:", idx_id2)
 	if idx_id1 and idx_id2 then
