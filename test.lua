@@ -1,5 +1,8 @@
 
 
-local tcode = require "service/tcode"
-
-print(tcode.decode(message).msg_type)
+local tcode = require "mylib/tcode"
+-- require "mylib/tcode"
+local t_msg = {
+	["ste"] = "fewofi",
+}
+print(tcode:encode(t_msg))
